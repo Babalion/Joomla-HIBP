@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extensionset name="Babalions Extensions" description="Babalions Extensions update site">
+
+  <!-- User Plugins -->
+  <extension name="Babalions HaveIBeenPwned" element="babalionshibp" type="plugin" version="4.0.1" client="site" folder="user" targetplatform="joomla" targetplatformversion="3\.(10)|4\.[0]" detailsurl="https://n3t.bitbucket.io/updates/extensions/plg_n3thibp.xml" infourl="https://github.com/Babalion/Joomla-HIBP/readme.md" />
+
+</extensionset>

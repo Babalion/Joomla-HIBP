@@ -2,10 +2,10 @@
 /**
  * @package    n3t HaveIBeenPwnd
  *
- * @author     Pavel Poles - n3t.cz
- * @copyright  © 2021 Pavel Poles - n3t.cz. All rights reserved.
+ * @author     Babalion https://github.com/Babalion
+ * @copyright  © 2021 Babalion https://github.com/Babalion All rights reserved.
  * @license    GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
- * @link       https://n3t.bitbucket.io
+ * @link       https:/github.com/Babalion/Joomla-HIBP
  */
 
 defined('_JEXEC') or die;
@@ -17,10 +17,10 @@ use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Http\HttpFactory;
 use Joomla\CMS\Version;
 
-class plgUserN3tHibp extends CMSPlugin
+class plgUserHIBP extends CMSPlugin
 {
   private const API_URL = 'https://api.pwnedpasswords.com/range/';
-  private const USER_AGENT = 'n3t HaveIBeenPwnd for Joomla! CMS [https://n3t.bitbucket.io]';
+  private const USER_AGENT = 'Babalions HaveIBeenPwnd for Joomla! CMS [https:/github.com/Babalion/Joomla-HIBP]';
 
   protected $autoloadLanguage = true;
 
@@ -73,13 +73,13 @@ class plgUserN3tHibp extends CMSPlugin
       if ($this->params->get('disable_save', 0)) {
         if (Version::MAJOR_VERSION == 3) {
           $user = Factory::getUser();
-          $this->app->enqueueMessage(Text::_('PLG_USER_N3THIBP_PASSOWRD_PWND'), 'warning');
-          $user->setError(Text::_('PLG_USER_N3THIBP_PASSOWRD_PWND'));
+          $this->app->enqueueMessage(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'), 'warning');
+          $user->setError(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'));
           return false;
         } else
-          throw new \InvalidArgumentException(Text::_('PLG_USER_N3THIBP_PASSOWRD_PWND'));
+          throw new \InvalidArgumentException(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'));
       } else
-        $this->app->enqueueMessage(Text::_('PLG_USER_N3THIBP_PASSOWRD_PWND'), 'warning');
+        $this->app->enqueueMessage(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'), 'warning');
     }
 
     return true;
@@ -94,7 +94,7 @@ class plgUserN3tHibp extends CMSPlugin
       return true;
 
     if ($this->isPasswordPwnd($user['password']))
-      $this->app->enqueueMessage(Text::_('PLG_USER_N3THIBP_PASSOWRD_PWND_ON_LOGIN'), 'warning');
+      $this->app->enqueueMessage(Text::_('PLG_USER_HIBP_PASSOWRD_PWND_ON_LOGIN'), 'warning');
 
     return true;
   }
