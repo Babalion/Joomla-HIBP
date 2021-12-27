@@ -62,13 +62,13 @@ class plgUserHIBP extends CMSPlugin
 
   public function onUserBeforeSave(array $oldUser, bool $isNew, array $newUser): bool
   {
-    if (!isset($newUser['password_clear']) || empty($newUser['password_clear']))
+    if (empty($newUser['password_clear']))
       return true;
 
     if (!$this->params->get('check_save', 1))
       return true;
 
-	/** this needs to be debugged, error maessages dont work as expected*/
+	/** this needs to be debugged, error messages don't work as expected*/
     if ($this->isPasswordPwnd($newUser['password_clear'])) {
       if ($this->params->get('disable_save', 0)) {
         if (Version::MAJOR_VERSION == 3) {
@@ -77,7 +77,7 @@ class plgUserHIBP extends CMSPlugin
           $user->setError(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'));
           return false;
         } else
-          throw new \InvalidArgumentException(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'));
+          throw new InvalidArgumentException(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'));
       } else
         $this->app->enqueueMessage(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'), 'warning');
     }
@@ -90,7 +90,7 @@ class plgUserHIBP extends CMSPlugin
     if (!$this->params->get('check_login', 1))
       return true;
 
-    if (!isset($user['password']) || empty($user['password']))
+    if (empty($user['password']))
       return true;
 
     if ($this->isPasswordPwnd($user['password']))
