@@ -6,7 +6,7 @@
 	<authorUrl>github.com/Babalion/Joomla-HIBP</authorUrl>
 	<copyright>© 2021 Babalion - github.com/Babalion. All rights reserved.</copyright>
 	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
-	<version>1.0.0</version>
+	<version>10.0.0</version>
 	<description>PLG_USER_N3THIBP_MANIFEST_DESCRIPTION</description>
 
 	<scriptfile>install/install.php</scriptfile>
