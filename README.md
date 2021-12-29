@@ -8,3 +8,4 @@ Included languages:
 
 ## Credits
  - This is a fork from: https://extensions.joomla.org/extension/n3t-haveibeenpwned/
+ - Documentation: https://n3t-haveibeenpwned.readthedocs.io/en/latest/
