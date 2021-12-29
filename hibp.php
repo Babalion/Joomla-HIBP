@@ -18,7 +18,7 @@ use Joomla\CMS\Version;
 class plgUserHIBP extends CMSPlugin
 {
   private const API_URL = 'https://api.pwnedpasswords.com/range/';
-  private const USER_AGENT = 'Babalions HaveIBeenPwnd for Joomla! CMS [https:/github.com/Babalion/Joomla-HIBP]';
+  private const USER_AGENT = 'HaveIBeenPwnd for Joomla! CMS [https:/github.com/Babalion/Joomla-HIBP]';
 
   protected $autoloadLanguage = true;
 
@@ -29,6 +29,31 @@ class plgUserHIBP extends CMSPlugin
   {
     parent::__construct($subject, $config);
     $this->app = Factory::getApplication();
+  }
+
+  public function onUserBeforeSave(array $oldUser, bool $isNew, array $newUser): bool
+  {
+      if (empty($newUser['password_clear']))
+      return true;
+
+    if (!$this->params->get('check_save', 1))
+      return true;
+
+      /** this needs to be debugged, error messages don't work as expected*/
+    if ($this->isPasswordPwnd($newUser['password_clear'])) {
+      if ($this->params->get('disable_save', 0)) {
+        if (Version::MAJOR_VERSION == 3) {
+          /**$user = Factory::getUser();*/
+          $this->app->enqueueMessage(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'),'error');
+          /**$user->setError(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'));*/
+          return false;
+        } else
+          throw new InvalidArgumentException(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'));
+      } else
+        $this->app->enqueueMessage(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'), 'warning');
+    }
+
+    return true;
   }
 
   private function isPasswordPwnd(string $password): bool
@@ -56,31 +81,6 @@ class plgUserHIBP extends CMSPlugin
     }
 
     return false;
-  }
-
-  public function onUserBeforeSave(array $oldUser, bool $isNew, array $newUser): bool
-  {
-    if (empty($newUser['password_clear']))
-      return true;
-
-    if (!$this->params->get('check_save', 1))
-      return true;
-
-	/** this needs to be debugged, error messages don't work as expected*/
-    if ($this->isPasswordPwnd($newUser['password_clear'])) {
-      if ($this->params->get('disable_save', 0)) {
-        if (Version::MAJOR_VERSION == 3) {
-          $user = Factory::getUser();
-          $this->app->enqueueMessage(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'), 'warning');
-          $user->setError(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'));
-          return false;
-        } else
-          throw new InvalidArgumentException(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'));
-      } else
-        $this->app->enqueueMessage(Text::_('PLG_USER_HIBP_PASSOWRD_PWND'), 'warning');
-    }
-
-    return true;
   }
 
   public function onUserLogin(array $user, array $options): bool
