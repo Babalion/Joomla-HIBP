@@ -13,7 +13,7 @@
 	<help url="PLG_USER_HIBP_MANIFEST_HELP_URL" />
 
 	<updateservers>
-		<server type="git" priority="1" name="Babalions Extensions Updates">git+https://github.com:Babalion/Joomla-HIBP.git</server>
+		<server type="extension" name="Babalions Extensions Updates">https://raw.githubusercontent.com/babalion/joomla-hibp/master/update.xml</server>
 	</updateservers>
 
 	<languages folder="language">
