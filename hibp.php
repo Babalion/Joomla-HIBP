@@ -1,5 +1,8 @@
 <?php
 /**
+ * @package Babalions HIBP Have I been pwned
+ *
+ *
  * @author     Babalion https://github.com/Babalion
  * @copyright  © 2021 Babalion https://github.com/Babalion All rights reserved.
  * @license    GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html

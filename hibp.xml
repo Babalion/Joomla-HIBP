@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" version="3.10" group="user" method="upgrade">
-	<name>HaveIBeenPwnd for Joomla! CMS</name>
+	<name>Babalions HIBP Have I been pwned</name>
 	<creationDate>2021-12-27</creationDate>
 	<author>Babalion</author>
 	<authorUrl>https://github.com/Babalion</authorUrl>
