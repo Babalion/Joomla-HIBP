@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" version="3.10" group="user" method="upgrade">
 	<name>Babalions HIBP Have I been pwned</name>
-	<creationDate>2021-12-27</creationDate>
+	<creationDate>2021-12-29</creationDate>
 	<author>Babalion</author>
 	<authorUrl>https://github.com/Babalion</authorUrl>
 	<copyright>© 2021 Babalion - github.com/Babalion. All rights reserved.</copyright>
 	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
-	<version>0.9.1</version>
+	<version>0.9.2</version>
 	<description>PLG_USER_HIBP_MANIFEST_DESCRIPTION</description>
 
 	<scriptfile>install/install.php</scriptfile>
