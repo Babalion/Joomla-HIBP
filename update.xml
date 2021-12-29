@@ -4,7 +4,7 @@
 		<description>Checks users passwords against HaveIBeenPwned.com compromised passwords database.</description>
 		<element>hibp</element>
 		<type>plugin</type>
-		<folder>system</folder>
+		<folder>user</folder>
 		<client>0</client>
 		<version>10.0.0</version>
 		<downloads>
