@@ -1,0 +1,23 @@
+<updates>
+	<update>
+		<name>Babalions HIBP Have I been pwned</name>
+		<description>Checks users passwords against HaveIBeenPwned.com compromised passwords database.</description>
+		<element>hibp</element>
+		<type>plugin</type>
+		<folder>system</folder>
+		<client>0</client>
+		<version>10.0.0</version>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/Jokr97/Joomla-HIBP/releases/download/10.0.0/hibp_10.0.0.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<infourl title="HIBP GitHub-Repo">
+			https://github.com/Jokr97/Joomla-HIBP/blob/master/README.md
+		</infourl>
+		<maintainer>Babalion</maintainer>
+		<maintainerurl>https://github.com/Jokr97/Joomla-HIBP</maintainerurl>
+		<targetplatform name="joomla" version="3.*"/>
+	</update>
+</updates>
